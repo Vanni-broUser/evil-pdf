@@ -2,7 +2,7 @@ import enum
 from datetime import datetime
 
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer, DateTime, func
+from sqlalchemy import Column, Integer, DateTime, Text, func
 
 
 Base = declarative_base()
@@ -29,3 +29,8 @@ class BaseEntity(Base):
   def __repr__(self):
     attributes = [f'{attr}: {getattr(self, attr)}' for attr in self.to_dict()]
     return f'{self.__class__.__name__} {{{", ".join(attributes)}}}'
+
+
+class Request(BaseEntity):
+  data = Column(Text, nullable=False)
+  number = Column(Integer, nullable=False)
