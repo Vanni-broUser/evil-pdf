@@ -1,15 +1,15 @@
 run = "python -m src"
-modules = ["python-3.10:v18-20230807-322e88b"]
+modules = ["python-3.12", "nix"]
 hidden = [".pythonlibs"]
 
 [nix]
-channel = "stable-23_05"
+channel = "stable-24_05"
 
 [unitTest]
 language = "python3"
 
 [deployment]
-run = "python3 -m src"
+run = ["sh", "-c", "python -m src"]
 deploymentTarget = "cloudrun"
 
 [[ports]]
