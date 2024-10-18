@@ -32,5 +32,7 @@ class BaseEntity(Base):
 
 
 class Request(BaseEntity):
+  __tablename__ = 'request'
+
   data = Column(Text, nullable=False)
   number = Column(Integer, nullable=False)
